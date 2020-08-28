@@ -24,8 +24,9 @@ class Root extends React.Component {
             token: token,
             user: this.state.authUser
         })
-            .then(console.log('O token foi guardado!'))
+            .then(console.log('O token foi guardado!' + token))
             .catch(err => alert('Please fill your name first!'))
+
     }
 
     handleChange = (e) => {
@@ -33,6 +34,7 @@ class Root extends React.Component {
     }
 
     render() {
+
         return (
             <div className="d-flex flex-column">
                 <label>
