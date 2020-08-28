@@ -25,7 +25,7 @@ class Root extends React.Component {
             user: this.state.authUser
         })
             .then(console.log('O token foi guardado!' + token))
-            .catch(err => alert('Please fill your name first!'))
+            .catch(err => console.log(err))
 
     }
 
