@@ -20,7 +20,7 @@ class Root extends React.Component {
         await messaging.requestPermission();
         const token = await messaging.getToken();
 
-        axios.post('http://pwa-laravel-app.herokuapp.com/api/set-notification-token', {
+        axios.post('https://pwa-laravel-app.herokuapp.com/api/set-notification-token', {
             token: token,
             user: this.state.authUser
         })
