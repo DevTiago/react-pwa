@@ -41,11 +41,11 @@ class Root extends React.Component {
     render() {
 
         return (
-            <div className="d-flex flex-column">
+            <div>
 
 
                 {this.state.show ?
-                    <div>
+                    <div className="d-flex flex-column">
                         <label>
                             Please type your name:
                  <input type="text" name="authUser" value={this.state.value} onChange={this.handleChange} />
