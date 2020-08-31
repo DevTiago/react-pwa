@@ -25,6 +25,11 @@ class Root extends React.Component {
             user: this.state.authUser
         })
             .then(console.log('O token foi guardado!' + token))
+            .then(this.setState({
+                show: false
+            }))
+            .then(document.querySelector('.modal-backdrop').style.display = 'none')
+            .then(document.querySelector('.modal').style.display = 'none')
             .catch(err => console.log(err))
 
     }
@@ -37,14 +42,26 @@ class Root extends React.Component {
 
         return (
             <div className="d-flex flex-column">
-                <label>
-                    Please type your name:
-                <input type="text" name="authUser" value={this.state.value} onChange={this.handleChange} />
-                </label>
 
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Push Notifications Authorization
-                </button>
+
+                {this.state.show ?
+                    <div>
+                        <label>
+                            Please type your name:
+                 <input type="text" name="authUser" value={this.state.value} onChange={this.handleChange} />
+                        </label>
+
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Push Notifications Authorization
+                 </button>
+                    </div> :
+                    <p>Authorization granted!</p>
+                }
+
+
+
+
+
 
                 <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
@@ -65,6 +82,13 @@ class Root extends React.Component {
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
             </div>
         );
     }
